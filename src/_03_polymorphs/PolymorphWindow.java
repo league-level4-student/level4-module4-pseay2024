@@ -34,15 +34,16 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseList
    	 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    	 window.pack();
    	 window.setVisible(true);
+   	 window.addMouseListener(this);
    	 
    	 polys = new ArrayList<Polymorph>();
-   	 int polySize = 10000;
+   	 int polySize = 100;
    	 for (int i = 0; i < polySize; i++)
    	 {
    		 Random r = new Random();
    		 int x = r.nextInt(WIDTH - Polymorph.width);
    		 int y = r.nextInt(HEIGHT - Polymorph.height);
-   		 switch (r.nextInt(6))
+   		 switch (r.nextInt(7))
    		 {
    		 case 0:
    			 polys.add(new RedPolymorph(x,y));
@@ -61,6 +62,9 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseList
    			 break;
    		 case 5:
    			 polys.add(new jopPolymorph(x,y));
+   			 break;
+   		 case 6:
+   			 polys.add(new ImagePolymorph(x,y));
    			 break;
    		 }
    	 }
